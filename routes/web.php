@@ -73,12 +73,16 @@ Route::prefix('league/{slug}')->middleware(['auth'])->group(function () {
 		Route::post('schedule/Store', [LeagueScheduleController::class, 'Store'])->name('league.schedule.Store');
 		Route::get('schedule/get-opposing-teams', [LeagueScheduleController::class, 'getOpposingTeams'])->name('league.get-opposing-teams');
 		
+		Route::post('/games/{game}/postpone', [LeagueScheduleController::class, 'postpone'])->name('games.postpone');
+		
 
 		Route::get('score/{id}', [LeagueScoreController::class, 'index'])->name('league.games.index');
 		Route::get('score/create/{id}', [LeagueScoreController::class, 'create'])->name('league.score.create');
 		Route::post('/EnterScore/{gameId}/store-score', [LeagueScoreController::class, 'store'])->name('league.games.store-score');
 
 		Route::post('/EnterScore/{gameId}/store-stat', [LeagueScoreController::class, 'storestatScore'])->name('league.games.store-stat');
+
+		Route::get('/players/stats', [LeagueScoreController::class, 'getIndex'])->name('players.stats');
 
 
 
