@@ -1,0 +1,9 @@
+/vendor/
+node_modules/
+
+storage/*.key
+.env
+/public
+/public1
+/storage
+/storage1
